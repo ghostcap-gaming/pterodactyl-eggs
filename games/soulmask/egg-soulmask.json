@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-05-31T13:44:50+01:00",
+    "exported_at": "2024-06-01T02:33:10+01:00",
     "name": "Soulmask",
     "author": "support@gamehostbros.com",
     "description": "Escaping a deadly sacrificial ritual, you find an ancient mystical mask on your journey. This mask holds potent knowledge, changing the world you knew. Face the harsh challenges of nature, survive, rally followers, and build your own tribe. Explore and unveil the truths behind the enigmatic mask.",
@@ -17,7 +17,7 @@
     "file_denylist": [
         "PalServer.sh"
     ],
-    "startup": ".\/WSServer.sh Level01_Main -server \"$@\" -SteamServerName={{HOSTNAME}} -Maxplayers={{MAX_PLAYERS}} -backup={{BACKUP_TIME}} -saving={{SAVING_TIME}} -log -UTF8Output -MULTIHOME=0.0.0.0 -Port={{SERVER_PORT}} -QueryPort={{QUERY_PORT}} -EchoPort={{ECHO_PORT}} -backupinterval={{BACKUP_INTERVAL}} -adminpsw={{ADMIN_PASSWORD}} $([ -n \"$PASSWORD\" ] && echo \"-PSW=$PASSWORD\") -forcepassthrough",
+    "startup": ".\/WSServer.sh Level01_Main -server \"$@\" -SteamServerName=\"{{HOSTNAME}}\" -Maxplayers={{MAX_PLAYERS}} -backup={{BACKUP_TIME}} -saving={{SAVING_TIME}} -log -UTF8Output -MULTIHOME=0.0.0.0 -Port={{SERVER_PORT}} -QueryPort={{QUERY_PORT}} -EchoPort={{ECHO_PORT}} -backupinterval={{BACKUP_INTERVAL}} -adminpsw={{ADMIN_PASSWORD}} $([ -n \"$PASSWORD\" ] && echo \"-PSW=$PASSWORD\") -forcepassthrough",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \" Create Dungeon Successed:\"\r\n}",
