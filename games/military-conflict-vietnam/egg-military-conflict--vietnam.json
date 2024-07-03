@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-07-04T02:26:22+08:00",
+    "exported_at": "2024-07-04T03:01:29+08:00",
     "name": "Military Conflict: Vietnam",
     "author": "support@gamehostbros.com",
     "description": "It's 1968 in Vietnam, the time to 'Make War Not Love'. Side with the Viet Cong or U.S. Army in this intense, fast-paced FPS set in the Vietnam War. Choose from over 100+ weapons of destruction. Kill or be killed!",
@@ -45,16 +45,6 @@
             "default_value": "",
             "user_viewable": false,
             "user_editable": false,
-            "rules": "nullable|string",
-            "field_type": "text"
-        },
-        {
-            "name": "Steam Guard Code",
-            "description": "Your Steam 2FA on your mobile phone. (Not really needed anymore as you get Approve requests now)",
-            "env_variable": "STEAM_AUTH",
-            "default_value": "",
-            "user_viewable": true,
-            "user_editable": true,
             "rules": "nullable|string",
             "field_type": "text"
         },
