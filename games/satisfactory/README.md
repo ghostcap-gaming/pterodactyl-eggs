@@ -4,6 +4,6 @@ Satisfactory is a first-person open-world factory building game with a dash of e
 
 ## Server Ports
 
-| Port    | default |
-|---------|---------|
-| Game    |  7777  |
+| Port    | default | protocol |
+|---------|---------|---------|
+| Game    |  7777  |  TCP/UDP  |
