@@ -4,8 +4,8 @@ Sven Co-op is a co-operative game originally based around Valve Software's Half-
 
 ## Server Ports
 
-Sven co-op requires a single port to be opened
+Sven co-op requires a single port to be opened. If you require Rcon then you will also need to open TCP as well as UDP.
 
-| Port    | default |
-|---------|---------|
-| Game    |  27015  |
+| Type    | Port | Protocol |
+|---------|---------|---------|
+| Game    |  27015  |  UDP  |
