@@ -4,8 +4,9 @@ Military Conflict: Vietnam (also known as MCV) is a class-based infantry multipl
 
 ## Server Ports
 
-Military Conflict: Vietnam requires a single port to be opened
+Military Conflict: Vietnam requires a single port to be opened. If you require Rcon then you will also need to open TCP as well as UDP.
 
-| Port    | default |
-|---------|---------|
-| Game    |  27015  |
+| Type    | Port | Protocol |
+|---------|---------|---------|
+| Game    |  27015  |  UDP  |
+
