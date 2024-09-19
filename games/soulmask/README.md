@@ -4,8 +4,8 @@ Soulmask is a survival adventure game where players escape a deadly ritual, harn
 
 ## Server Ports
 
-| Port    | default |
-|---------|---------|
-| Game    |  7777  |
-| Query Port    |  7778  |
-| Echo Port (Not Required)   |  18888  |
+| Type    | Port | Protocol |
+|---------|---------|---------|
+| Game    |  7777  |  UDP  |
+| Query    |  7778  |  UDP  |
+| Echo Port (Optional)   |  18888  |  TCP  |
