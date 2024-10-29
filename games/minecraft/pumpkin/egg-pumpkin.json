@@ -1,0 +1,31 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2024-10-29T14:12:48+08:00",
+    "name": "Pumpkin",
+    "author": "michael@gamehostbros.com",
+    "description": "Pumpkin is a Minecraft server built entirely in Rust, offering a fast, efficient, and customizable experience. It prioritizes performance and player enjoyment while adhering to the core mechanics of the game.",
+    "features": null,
+    "docker_images": {
+        "ghcr.io\/pelican-eggs\/yolks:debian": "ghcr.io\/pelican-eggs\/yolks:debian"
+    },
+    "file_denylist": [],
+    "startup": "export HOME=\/home\/container; cd \/home\/container; .\/pumpkin",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": [\r\n        \"You now can connect to the server\"\r\n    ]\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\ncd \/mnt\/server\r\n\r\n# Update and install dependencies\r\napt-get update\r\napt-get install -y build-essential pkg-config\r\n\r\n# Install Rust\r\ncat > install_rust.sh << 'EOF'\r\n#!\/bin\/bash\r\ncurl --proto '=https' --tlsv1.2 -sSf https:\/\/sh.rustup.rs | RUSTUP_HOME=\/mnt\/server\/.rustup CARGO_HOME=\/mnt\/server\/.cargo sh -s -- --default-toolchain stable --profile minimal --no-modify-path -y\r\nEOF\r\nchmod +x install_rust.sh\r\n.\/install_rust.sh\r\n\r\n# Set up Rust environment\r\nexport RUSTUP_HOME=\/mnt\/server\/.rustup\r\nexport CARGO_HOME=\/mnt\/server\/.cargo\r\nexport PATH=\"\/mnt\/server\/.cargo\/bin:$PATH\"\r\nsource \/mnt\/server\/.cargo\/env\r\n\r\n# Create required directories\r\nmkdir -p world\/region\r\nmkdir -p world\/playerdata\r\nmkdir -p world\/data\r\n\r\n# Download the latest release with correct filename\r\ncurl -L -o pumpkin-linux.tar.gz \"https:\/\/github.com\/pedrotski\/pumpkin-builder\/releases\/latest\/download\/pumpkin-linux.tar.gz\"\r\ntar -xzf pumpkin-linux.tar.gz\r\nrm pumpkin-linux.tar.gz\r\n\r\n# Create configuration file\r\ncat > configuration.toml << 'EOF'\r\nserver_address = \"0.0.0.0:27025\"\r\nseed = \"\"\r\nmax_players = 100000\r\nview_distance = 10\r\nsimulation_distance = 10\r\ndefault_difficulty = \"Normal\"\r\nallow_nether = true\r\nhardcore = false\r\nonline_mode = true\r\nencryption = true\r\nmotd = \"A Blazing fast Pumpkin Server!\"\r\ntps = 20.0\r\ndefault_gamemode = \"Survival\"\r\nscrub_ips = true\r\nuse_favicon = true\r\nfavicon_path = \"icon.png\"\r\nEOF\r\n\r\n# Update the server port in configuration\r\nsed -i \"s\/server_address = \\\"0.0.0.0:[0-9]*\\\"\/server_address = \\\"0.0.0.0:${SERVER_PORT}\\\"\/\" configuration.toml\r\n\r\necho -e \"Installation complete.\"\r\necho -e \"Rust version: $(rustc --version)\"\r\necho -e \"Cargo version: $(cargo --version)\"\r\nrm install_rust.sh\r\nsleep 3\r\nexit 0",
+            "container": "ghcr.io\/parkervcp\/installers:debian",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": []
+}
