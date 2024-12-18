@@ -15,7 +15,7 @@
         "ghcr.io\/parkervcp\/yolks:wine_latest": "ghcr.io\/parkervcp\/yolks:wine_latest"
     },
     "file_denylist": [],
-    "startup": "export SteamAppId=3246670 && cd \/home\/container && wine \/home\/container\/AskaServer.exe -nographics -batchmode -propertiesPath \"server properties.txt\" -logfile \/home\/container\/output.txt & tail -c0 -F .\/output.txt",
+    "startup": "export SteamAppId=1898300 && cd \/home\/container && wine \/home\/container\/AskaServer.exe -nographics -batchmode -propertiesPath \"server properties.txt\" -logfile \/home\/container\/output.txt & tail -c0 -F .\/output.txt",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"Activating game state: GameState_Boot\"\r\n}",
