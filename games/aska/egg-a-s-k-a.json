@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-12-19T02:34:40+08:00",
+    "exported_at": "2024-12-19T04:18:11+08:00",
     "name": "ASKA",
     "author": "michael@gamehostbros.com",
     "description": "Lay claim to unspoiled lands and pave the way for a fierce Viking tribe. Craft the ultimate settlement solo or together with up to x3 friends. Trust in the Gods and the power of the Eye of Odin and summon intelligent NPC villagers to provide camaraderie and relief from the toils of survival.",
@@ -15,9 +15,9 @@
         "ghcr.io\/parkervcp\/yolks:wine_latest": "ghcr.io\/parkervcp\/yolks:wine_latest"
     },
     "file_denylist": [],
-    "startup": "export SteamAppId=1898300 && cd \/home\/container && wine \/home\/container\/AskaServer.exe -nographics -batchmode -propertiesPath \"server properties.txt\" -logfile \/home\/container\/output.txt & tail -c0 -F .\/output.txt",
+    "startup": "export SteamAppId=1898300 && wine \/home\/container\/AskaServer.exe -nographics -batchmode -propertiesPath \"\/home\/container\/server properties.txt\" -logfile \/home\/container\/output.txt & tail -c0 -F \/home\/container\/output.txt",
     "config": {
-        "files": "{}",
+        "files": "{\r\n    \"server properties.txt\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"server name\": \"server name = {{server.build.env.HOSTNAME}}\",\r\n            \"display name\": \"display name = {{server.build.env.SESSION_NAME}}\",\r\n            \"steam game port\": \"steam game port = {{server.build.default.port}}\",\r\n            \"steam query port\": \"steam query port = {{server.build.env.QUERY_PORT}}\",\r\n            \"authentication token\": \"authentication token = {{server.build.env.AUTH_TOKEN}}\",\r\n            \"region\": \"region = {{server.build.env.REGION}}\",\r\n            \"autosave style\": \"autosave style = {{server.build.env.AUTOSAVE_STYLE}}\",\r\n            \"password\": \"password = {{server.build.env.PASSWORD}}\",\r\n            \"keep server world alive\": \"keep server world alive = {{server.build.env.KEEP_ALIVE}}\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"Activating game state: GameState_Boot\"\r\n}",
         "logs": "{}",
         "stop": "^^C"
@@ -88,6 +88,76 @@
             "user_viewable": false,
             "user_editable": false,
             "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Query Port",
+            "description": "The query port of the server.",
+            "env_variable": "QUERY_PORT",
+            "default_value": "27016",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "[Basic] Session Name",
+            "description": "The name of your server as it appears in the server list.",
+            "env_variable": "SESSION_NAME",
+            "default_value": "My Aska Server",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:120",
+            "field_type": "text"
+        },
+        {
+            "name": "[Basic] Server Password",
+            "description": "Password players must enter to join your server (leave blank for none).",
+            "env_variable": "PASSWORD",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:40",
+            "field_type": "text"
+        },
+        {
+            "name": "Steam GSLT Auth Token",
+            "description": "The token needed for an authentication without a Steam client. Should come from https:\/\/steamcommunity.com\/dev\/managegameservers for the Aska game app (id: 1898300)",
+            "env_variable": "AUTH_TOKEN",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable",
+            "field_type": "text"
+        },
+        {
+            "name": "Region",
+            "description": "The region the game server is displayed in",
+            "env_variable": "REGION",
+            "default_value": "default",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "in:default,asia,japan,europe,south america,south korea,usa east,usa west,australia,canada east,hong kong,india,turkey,united arab emirates,usa south central",
+            "field_type": "text"
+        },
+        {
+            "name": "Autosave Interval",
+            "description": "The style in which the server should save, possible options: every morning, disabled, every 5 minutes, every 10 minutes, every 15 minutes, every 20 minutes",
+            "env_variable": "AUTOSAVE_STYLE",
+            "default_value": "every 20 minutes",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "in:every morning,disabled,every 5 minutes,every 10 minutes,every 15 minutes,every 20 minutes",
+            "field_type": "text"
+        },
+        {
+            "name": "[Basic] Hostname",
+            "description": "The name of the host as displayed in the browser",
+            "env_variable": "HOSTNAME",
+            "default_value": "Hosted By Game Host Bros",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:120",
             "field_type": "text"
         }
     ]
