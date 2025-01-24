@@ -2,7 +2,7 @@
 
 Pumpkin is a Minecraft server built entirely in Rust, offering a fast, efficient, and customizable experience. It prioritizes performance and player enjoyment while adhering to the core mechanics of the game.
 
-https://snowiiii.github.io/Pumpkin/
+https://pumpkinmc.org/
 
 ## Server Ports
 
