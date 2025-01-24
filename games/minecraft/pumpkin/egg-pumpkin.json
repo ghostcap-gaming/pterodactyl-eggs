@@ -10,7 +10,7 @@
     "description": "Pumpkin is a Minecraft server built entirely in Rust, offering a fast, efficient, and customizable experience. It prioritizes performance and player enjoyment while adhering to the core mechanics of the game.",
     "features": null,
     "docker_images": {
-        "ghcr.io\/pelican-eggs\/yolks:debian": "ghcr.io\/pelican-eggs\/yolks:debian"
+        "ghcr.io\/pelican-eggs\/yolks:debian": "ghcr.io\/pelican-eggs\/yolks:ubuntu"
     },
     "file_denylist": [],
     "startup": "export HOME=\/home\/container; cd \/home\/container; .\/pumpkin",
